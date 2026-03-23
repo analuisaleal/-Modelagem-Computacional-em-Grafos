@@ -1,6 +1,6 @@
 # 📊 TAD Grafo em C — Matriz de Adjacência
 
-Implementação de um **Tipo Abstrato de Dados (TAD) para Grafos** em linguagem C, utilizando **matriz de adjacência com pesos**. O projeto foi desenvolvido como exercício acadêmico e organiza a solução nos moldes de um TAD completo (`graph.h` / `graph.c` / `main.c`), entregue em arquivo único para compatibilidade com juízes online.
+Implementação de um **Tipo Abstrato de Dados (TAD) para Grafos** em linguagem C, utilizando **matriz de adjacência com pesos**. O projeto foi desenvolvido como exercício acadêmico e organiza a solução nos moldes de um TAD completo `graph.h` / `graph.c` / `main.c`.
 
 ---
 
