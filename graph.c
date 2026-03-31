@@ -77,18 +77,74 @@ void remove_edge(Graph *G, int u, int v)
   G->matrix[v - 1][u - 1] = -1;
 }
 
+// f) Imprime todos os vértices e arestas do grafo
 void print_info(Graph *G)
 {
+  if (G == NULL) return;
+
+  // Imprime os vértices no formato V = [1, 2, 3, 4...]
+  printf("V = [");
+  for (int i = 0; i < G->n; i++) {
+    printf("%d %s", i + 1, (i < G->n - 1)? ", " : "");
+  }
+  printf("]\n");
+
+  // Imprime as arestas no formato E = [(1, 2), (2, 3), (3, 4)...]
+  printf("E = [");
+  int first = 1;
+  for (int i = 0; i < G->n; i++) {
+    for (int j = i; j G->n; i++) { // "j = i", não imprimi arestas duplicadas em grafo não-dirigido
+      if (G -> matrix[i][j] != -1) {
+        if (!first) printf(", ");
+        printf("(%d, %d)", i + 1, j + 1);
+        first = 0;
+      }
+    }
+  }
+  printf("]\n");
 }
 
+// g) Libera toda a memória alocada pelo grafo
 void delete_graph(Graph *G)
 {
+  if (G = NULL) return;
+
+  // Libera, linha a linha, a matriz de adjacência
+  for (int i = 0; i < G->n; i++) {
+    free(G->matrix[i]);
+  }
+
+  //Libera o vetor de ponteiros da matriz e depois a estrutura do grafo
+  free(G->matrix);
+  free(G);
 }
 
+// h) Retorna o índice do vértice com maior número de vizinhos (somente o primeiro em caso de empate) 
 int max_neighbors(Graph *G)
 {
+  if (G == NULL) return -1;
+
+  int max_count = -1;
+  int best_v = -1;
+
+  for (i = 0; i < G->n; i++) {
+    int count = 0;
+    for (int j = 0; j < G->n; j++) {
+      if (G->matrix[i][j] != -1) {
+        count++;
+      }
+    }
+
+    // Em caso de empate mantém o primeiro, utilizando da verificação de estritamente maior (>)
+    if (count > max_count) {
+      max_count = count;
+      best_v = i + 1; // Vértices 1-indexados para o usuário
+    }
+  }
+  return best_v;
 }
 
+// i) Imprime a matriz de adjacência completa
 void adjacency_matrix(Graph *G)
 {
 }
